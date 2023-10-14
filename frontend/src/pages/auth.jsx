@@ -3,30 +3,6 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 
-import styled from "styled-components";
-
-const AuthContainer = styled.div`
-color: black;
-font-family: Verdana, Geneva, Tahoma, sans-serif;
-background-color: #fbbf8d;
-  box-shadow: 0 8px 32px 0 rgba(17, 17, 17, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(13.5px);
-
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30rem;
-  height: 30rem;
-  border-radius: 10%;
-  margin: 5rem auto 0 auto;
-
-
-`;
-  
-
-
 export const Auth = () => {
   return (
     <div className="auth">
@@ -62,11 +38,11 @@ const Login = () => {
   };
 
   return (
-    <AuthContainer>
+    <div className="auth-container">
       <form onSubmit={handleSubmit}>
         <h2>Login</h2>
         <div className="form-group">
-          <label htmlFor="username">Usuario:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"
@@ -75,7 +51,7 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Senha:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -83,9 +59,9 @@ const Login = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit">Login</button>
       </form>
-      </AuthContainer>
+    </div>
   );
 };
 
@@ -103,21 +79,18 @@ const Register = () => {
         username,
         password,
       });
-      alert("Cadastro concluído! Agora faça login.");
+      alert("Registration Completed! Now login.");
     } catch (error) {
       console.error(error);
     }
   };
 
   return (
-    <AuthContainer>
+    <div className="auth-container">
       <form onSubmit={handleSubmit}>
-
-        <h2>Cadastro</h2>
-
-
+        <h2>Register</h2>
         <div className="form-group">
-          <label htmlFor="username">Usuario:</label>
+          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"
@@ -126,7 +99,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Senha:</label>
+          <label htmlFor="password">Password:</label>
           <input
             type="password"
             id="password"
@@ -134,8 +107,8 @@ const Register = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Cadastrar-se!</button>
+        <button type="submit">Register</button>
       </form>
-    </AuthContainer>
+    </div>
   );
 };

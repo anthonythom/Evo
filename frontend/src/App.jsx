@@ -5,12 +5,12 @@ import { CreateRecipe } from "./pages/create-recipe";
 import { SavedRecipes } from "./pages/saved-recipes";
 import { Navbar } from "./components/navbar";
 import styled from "styled-components";
-import "./App.css";
+
 
 const Section = styled.div`
 display: flex;
-justify-content: center;
-align-items: center;
+
+
 `;
 
 
