@@ -1,6 +1,73 @@
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
+import styled from "styled-components";
+
+
+
+const Section = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+  display: flex;
+justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+`;
+
+const Title = styled.p`
+margin-top: 50px;
+margin-bottom: 50px;
+font-family: 'Poppins', sans-serif;
+  font-size: 50px;
+  color: black;
+ 
+`;
+
+const Title2 = styled.p`
+  font-size: 25px;
+
+ font-weight: bolder;
+  font-family: 'Poppins', sans-serif;
+  color: #343434;
+ 
+`;
+
+const Container = styled.div`
+
+
+`;
+
+
+const Ul = styled.div`
+  display: flex;
+  width: 100vw;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+`;
+
+const Li = styled.div`
+  width: 500px;
+`;
+
+const P = styled.p`
+
+
+font-size: 25px;
+font-weight: bolder;
+ font-family: 'Poppins', sans-serif;
+ color: #343434;
+
+`;
+
+const Img = styled.img`
+  width: 500px;
+  height: 300px;
+  border-radius: 20px;
+`;
+
+
+
 
 export const SavedRecipes = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
@@ -21,20 +88,25 @@ export const SavedRecipes = () => {
     fetchSavedRecipes();
   }, []);
   return (
-    <div>
-      <h1>Saved Recipes</h1>
-      <ul>
+    <Section>
+    <Container>
+    
+      <Title>Receitas Salvas</Title>
+      <Ul>
         {savedRecipes.map((recipe) => (
-          <li key={recipe._id}>
+          <Li key={recipe._id}>
             <div>
-              <h2>{recipe.name}</h2>
+              <Title2>{recipe.name}</Title2>
             </div>
-            <p>{recipe.description}</p>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} minutes</p>
-          </li>
+            <P>{recipe.description}</P>
+            
+            <Img src={recipe.imageUrl} alt={recipe.name} />
+            <P>Cooking Time: {recipe.cookingTime} minutes</P>
+          </Li>
         ))}
-      </ul>
-    </div>
+      </Ul>
+    
+    </Container>
+    </Section>
   );
 };

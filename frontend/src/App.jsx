@@ -15,17 +15,17 @@ display: flex;
 
 
 const Container = styled.div`
-
   height: 100vh;
   width: 100vw;
+
   scroll-behavior: smooth;
   overflow-y: auto;
   scrollbar-width: none;
   color: #e1e1e6;
   background-image: conic-gradient(
     from 90deg at 50% 100%,
-    #ebc6a6 90deg,
-    #eedfa7 1.9turn
+    #ffffffe0 90deg,
+    #ffffff 5.8turn
   );
 
   &::-webkit-scrollbar {
