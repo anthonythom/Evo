@@ -31,7 +31,7 @@ const Logo = styled.img`
 `;
 const Links = styled.ul`
   display: flex;
-  align-items: center;
+align-items: center;
   gap: 50px;
   cursor: pointer;
 

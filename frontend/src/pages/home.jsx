@@ -36,7 +36,7 @@ const Ul = styled.ul`
   display: flex;
   width: 100vw;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   text-align: center;
   justify-content: center;
   gap: 50px;
