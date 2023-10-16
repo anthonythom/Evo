@@ -9,6 +9,9 @@ const Section = styled.div`
 
   flex-wrap: wrap;
   text-align: center;
+  background-image: url("public/bg.png");
+  background-repeat: repeat;
+  background-size: cover;
 `;
 
 const Title = styled.a`
@@ -21,16 +24,15 @@ const Title = styled.a`
 
 const Title2 = styled.p`
   font-size: 35px;
-  font-weight: bolder;
+  font-weight: bold;
+  text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #343434;
+  color: #000000;
   margin-top: 20px;
   margin-bottom: 20px;
 `;
 
-const Container = styled.div`
-
-`;
+const Container = styled.div``;
 
 const Ul = styled.ul`
   display: flex;
@@ -45,16 +47,22 @@ const Ul = styled.ul`
 const Li = styled.li`
   width: 550px;
   border-radius: 20px;
-  border: 1px solid;
-  height: auto;
- 
 
-  background-color: #e0dbd9;
+  height: auto;
+
+  background-color: rgba(225, 225, 225, 0.697);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+
   box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(13.5px);
-  &:hover{
-    background-color: yellow;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.697);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
   }
 `;
 const P = styled.p`
@@ -62,11 +70,9 @@ const P = styled.p`
   margin-left: 25px;
   font-size: 25px;
   width: 500px;
-
-
   font-family: "Poppins", sans-serif;
-  color: #343434;
-  text-align: justify;
+  color: #000000;
+  text-align: start;
   margin-top: 20px;
   margin-bottom: 20px;
 `;
@@ -77,8 +83,8 @@ const Img = styled.img`
 `;
 
 const Button = styled.button`
-margin-left: 10px;
-width: 180px;
+  margin-left: 10px;
+  width: 180px;
   height: 50px;
   cursor: pointer;
   font-size: 14px;
@@ -87,31 +93,20 @@ width: 180px;
   text-align: center;
   border: 1px;
   border-style: solid;
- 
+
   border-radius: 50px;
 
   color: #ffffff;
-background-color: #000000;
+  background-color: #ff7c35;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
     color: #000000;
-    background-color: #ffcc00;
+    background-color: #ffffff;
     box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
   }
 `;
-
-
-
-
-
-
-
-
-
-
-
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -152,7 +147,11 @@ export const Home = () => {
       });
       setSavedRecipes(response.data.savedRecipes);
     } catch (err) {
-      console.log(err);
+      if (err.response && err.response.status === 500) {
+        alert("Você está deslogado. Por favor, se cadastre ou faça login para poder salvar a receita.");
+      } else {
+        console.log(err);
+      }
     }
   };
 
@@ -166,23 +165,22 @@ export const Home = () => {
           {recipes.map((recipe) => (
             <Li key={recipe._id}>
               <div>
-                <Title2>{recipe.name}</Title2> 
+                <Title2>{recipe.name}</Title2>
                 <Img src={recipe.imageUrl} alt={recipe.name} />
-                 <P>Tempo de preparo: {recipe.cookingTime} minutos</P>
-               
+                <P>Tempo de preparo: {recipe.cookingTime} minutos</P>
               </div>
               <div className="instructions">
                 <P>{recipe.instructions}</P>
               </div>
-             
+
               <Button
-                  onClick={() => saveRecipe(recipe._id)}
-                  disabled={isRecipeSaved(recipe._id)}
-                >
-                  {isRecipeSaved(recipe._id) ? "Salvo!" : "Salvar Receita!"}
-                </Button>
-                <br />
-                <br />
+                onClick={() => saveRecipe(recipe._id)}
+                disabled={isRecipeSaved(recipe._id)}
+              >
+                {isRecipeSaved(recipe._id) ? "Salvo!" : "Salvar Receita!"}
+              </Button>
+              <br />
+              <br />
             </Li>
           ))}
         </Ul>

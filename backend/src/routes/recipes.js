@@ -15,7 +15,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Create a new recipe
 router.post("/", verifyToken, async (req, res) => {
   const recipe = new RecipesModel({
     _id: new mongoose.Types.ObjectId(),
@@ -41,12 +40,11 @@ router.post("/", verifyToken, async (req, res) => {
       },
     });
   } catch (err) {
-    // console.log(err);
     res.status(500).json(err);
   }
 });
 
-// Get a recipe by ID
+// pega a receita pelo ID
 router.get("/:recipeId", async (req, res) => {
   try {
     const result = await RecipesModel.findById(req.params.recipeId);
@@ -56,7 +54,7 @@ router.get("/:recipeId", async (req, res) => {
   }
 });
 
-// Save a Recipe
+// salva a receita
 router.put("/", async (req, res) => {
   const recipe = await RecipesModel.findById(req.body.recipeID);
   const user = await UserModel.findById(req.body.userID);

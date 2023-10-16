@@ -5,32 +5,40 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import styled from "styled-components";
 
-
 const Section = styled.div`
-  height: auto;
-  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+  text-align: center;
+  background-image: url("public/bg.png");
+  background-repeat: repeat;
+  background-size: cover;
 `;
 
 const Container = styled.div`
   margin-top: 250px;
-
   display: flex;
-
   gap: 50px;
   height: auto;
-  background-color: #f8ad84;
-  box-shadow: 0 8px 32px 0 rgba(17, 17, 17, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(13.5px);
-  border-radius: 10px 10px 0px 0px;
+  background-color: rgba(82, 82, 82, 0.697);
 
-
+backdrop-filter: blur(10px);
+border-radius: 8px;
+box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
+backdrop-filter: blur(4.5px);
+-webkit-backdrop-filter: blur(13.5px);
+&:hover {
+  background-color: rgba(92, 90, 90, 0.697);
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+backdrop-filter: blur(10px);
+border-radius: 8px;
+}
   justify-content: center;
   width: 37%;
 
   border-radius: 5px;
   margin: 5rem auto 0 auto;
-
 
   @media (max-width: 768px) {
     width: 100%;
@@ -42,20 +50,14 @@ const Container = styled.div`
   }
 `;
 
-const Left = styled.div`
-  
-`;
-
 const Title = styled.h1`
   margin-top: 35px;
   display: flex;
   font-size: 3rem;
   font-weight: 200px;
   justify-content: center;
-  color: #ffffff;
+  color: #000000;
 `;
-
-
 
 const Form = styled.form`
   width: 500px;
@@ -73,23 +75,19 @@ const Input = styled.input`
   background-color: #fdfcff52;
   border: none;
   border-radius: 5px;
-  color: #fcfcfc;
- 
-  
+  color: #000000;
 `;
 
 const TextArea = styled.textarea`
   padding: 20px;
   border: none;
   border-radius: 5px;
-   color: #fcfcfc ;
+  color: #000000;
   background-color: #fdfcff52;
 `;
 
-
-
 const Button = styled.button`
-margin-left: 10px;
+  margin-left: 10px;
   height: 50px;
   cursor: pointer;
   font-size: 14px;
@@ -98,11 +96,11 @@ margin-left: 10px;
   text-align: center;
   border: 1px;
   border-style: solid;
- 
+
   border-radius: 50px;
 
-  color: #ffffff;
-background: transparent;
+  color: #000000;
+  background: transparent;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
@@ -112,11 +110,6 @@ background: transparent;
     box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
   }
 `;
-
-
-
-
-
 
 export const CreateRecipe = () => {
   const userID = useGetUserID();
@@ -164,70 +157,74 @@ export const CreateRecipe = () => {
       alert("Recipe Created");
       navigate("/");
     } catch (error) {
-      console.error(error);
+      if (error.response && error.response.status === 401) {
+        alert("Você está deslogado. Por favor, se cadastre ou faça login.");
+        navigate("/auth")
+      } else {
+        console.log(error);
+      }
     }
   };
 
   return (
     <Section>
       <Container>
-    
-      <Form onSubmit={handleSubmit}> 
-       <Title>Criar Receita</Title>
+        <Form onSubmit={handleSubmit}>
+          <Title>Criar Receita</Title>
 
-        <label htmlFor="name">Nome da Receita</label>
-        <Input
-          type="text"
-          id="name"
-          name="name"
-          value={recipe.name}
-          onChange={handleChange}
-        />
-        <label htmlFor="description">Descrição</label>
-        <TextArea
-          id="description"
-          name="description"
-          value={recipe.description}
-          onChange={handleChange}
-        ></TextArea>
-        <label htmlFor="ingredients">Ingrendientes</label>
-        {recipe.ingredients.map((ingredient, index) => (
+          <label htmlFor="name">Nome da Receita</label>
           <Input
-            key={index}
             type="text"
-            name="ingredients"
-            value={ingredient}
-            onChange={(event) => handleIngredientChange(event, index)}
+            id="name"
+            name="name"
+            value={recipe.name}
+            onChange={handleChange}
           />
-        ))}
-        <Button type="button" onClick={handleAddIngredient}>
-          Adicionar ingrendientes 
-        </Button>
-        <label htmlFor="instructions">Modo de preparo</label>
-        <TextArea
-          id="instructions"
-          name="instructions"
-          value={recipe.instructions}
-          onChange={handleChange}
-        ></TextArea>
-        <label htmlFor="imageUrl">Url da Imagem</label>
-        <Input
-          type="text"
-          id="imageUrl"
-          name="imageUrl"
-          value={recipe.imageUrl}
-          onChange={handleChange}
-        />
-        <label htmlFor="cookingTime">Tempo de cozimento (Minutos)</label>
-        <Input
-          type="number"
-          id="cookingTime"
-          name="cookingTime"
-          value={recipe.cookingTime}
-          onChange={handleChange}
-        />
-        <Button type="submit">Postar a receita!</Button>
-      </Form>
+          <label htmlFor="description">Descrição</label>
+          <TextArea
+            id="description"
+            name="description"
+            value={recipe.description}
+            onChange={handleChange}
+          ></TextArea>
+          <label htmlFor="ingredients">Ingrendientes</label>
+          {recipe.ingredients.map((ingredient, index) => (
+            <Input
+              key={index}
+              type="text"
+              name="ingredients"
+              value={ingredient}
+              onChange={(event) => handleIngredientChange(event, index)}
+            />
+          ))}
+          <Button type="button" onClick={handleAddIngredient}>
+            Adicionar ingrendientes
+          </Button>
+          <label htmlFor="instructions">Modo de preparo</label>
+          <TextArea
+            id="instructions"
+            name="instructions"
+            value={recipe.instructions}
+            onChange={handleChange}
+          ></TextArea>
+          <label htmlFor="imageUrl">Url da Imagem</label>
+          <Input
+            type="text"
+            id="imageUrl"
+            name="imageUrl"
+            value={recipe.imageUrl}
+            onChange={handleChange}
+          />
+          <label htmlFor="cookingTime">Tempo de cozimento (Minutos)</label>
+          <Input
+            type="number"
+            id="cookingTime"
+            name="cookingTime"
+            value={recipe.cookingTime}
+            onChange={handleChange}
+          />
+          <Button type="submit">Postar a receita!</Button>
+        </Form>
       </Container>
     </Section>
   );

@@ -5,68 +5,83 @@ import styled from "styled-components";
 
 
 
+
 const Section = styled.div`
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
   display: flex;
-justify-content: center;
+  justify-content: center;
   flex-wrap: wrap;
   text-align: center;
+
+
 `;
 
-const Title = styled.p`
-margin-top: 50px;
-margin-bottom: 50px;
-font-family: 'Poppins', sans-serif;
+const Title = styled.h1`
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-family: "Poppins", sans-serif;
   font-size: 50px;
-  color: black;
- 
+  color: #ffffff;
 `;
 
 const Title2 = styled.p`
-  font-size: 25px;
-
- font-weight: bolder;
-  font-family: 'Poppins', sans-serif;
-  color: #343434;
- 
+  font-size: 35px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
-const Container = styled.div`
+const Container = styled.div``;
 
-
-`;
-
-
-const Ul = styled.div`
+const Ul = styled.ul`
   display: flex;
   width: 100vw;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
+  text-align: center;
   justify-content: center;
   gap: 50px;
 `;
 
-const Li = styled.div`
-  width: 500px;
-`;
+const Li = styled.li`
+  width: 550px;
+  border-radius: 20px;
 
+  height: auto;
+
+  background-color: rgba(225, 225, 225, 0.697);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+
+  box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.697);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  }
+`;
 const P = styled.p`
-
-
-font-size: 25px;
-font-weight: bolder;
- font-family: 'Poppins', sans-serif;
- color: #343434;
-
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+  margin-left: 25px;
+  font-size: 25px;
+  width: 500px;
+  font-family: "Poppins", sans-serif;
+  color: #000000;
+  text-align: start;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
-
 const Img = styled.img`
   width: 500px;
   height: 300px;
   border-radius: 20px;
 `;
-
-
 
 
 export const SavedRecipes = () => {
@@ -101,7 +116,7 @@ export const SavedRecipes = () => {
             <P>{recipe.description}</P>
             
             <Img src={recipe.imageUrl} alt={recipe.name} />
-            <P>Cooking Time: {recipe.cookingTime} minutes</P>
+            <P>Tempo de preparo: {recipe.cookingTime} minutos</P>
           </Li>
         ))}
       </Ul>

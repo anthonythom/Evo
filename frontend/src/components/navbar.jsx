@@ -174,7 +174,7 @@ export const Navbar = () => {
     <Container>
       <Link to="/">
       
-        <Logo src="public/logo.png" />
+        <Logo src="logo.png" />
       </Link>
 
       <Links>
@@ -198,10 +198,14 @@ export const Navbar = () => {
               {" "}
               <Button>Entrar</Button>
               <ButtonC>Cadastre-se</ButtonC>
+              
             </Link>
           ) : (
+
+            
             <Button onClick={logout}> Sair </Button>
-          )}
+            
+          ) }
         </div>
       </Links>
     </Container>
