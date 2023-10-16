@@ -9,7 +9,7 @@ const Section = styled.div`
 
   flex-wrap: wrap;
   text-align: center;
-  background-image: url("public/bg.png");
+  background-image: url("bg.png");
   background-repeat: repeat;
   background-size: cover;
 `;

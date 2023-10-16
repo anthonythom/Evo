@@ -12,7 +12,7 @@ const Section = styled.div`
   width: 100vw;
   height: 100vh;
   color: #000000;
-  background-image: url("public/bg.png");
+  background-image: url("bg.png");
   background-repeat: repeat;
   background-size: 100%;
 `;

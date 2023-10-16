@@ -11,8 +11,11 @@ const Section = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   text-align: center;
-
-
+width: 100%;
+height: auto;
+  background-image: url("bg.png");
+  background-repeat: space;
+  background-size: cover;
 `;
 
 const Title = styled.h1`
