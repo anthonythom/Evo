@@ -21,7 +21,7 @@ const Container = styled.div`
   margin-top: 250px;
   display: flex;
   height: 500px;
-  background-color: rgba(82, 82, 82, 0.697);
+  background-color: rgba(247, 247, 247, 0.697);
 
   backdrop-filter: blur(10px);
   border-radius: 8px;
@@ -29,7 +29,7 @@ const Container = styled.div`
   backdrop-filter: blur(4.5px);
   -webkit-backdrop-filter: blur(13.5px);
   &:hover {
-    background-color: rgba(92, 90, 90, 0.697);
+    background-color: rgba(255, 255, 255, 0.697);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   border-radius: 8px;
@@ -77,10 +77,10 @@ const Form = styled.form`
 
 const Input = styled.input`
   padding: 20px;
-  background-color: #fdfcff52;
+  background-color: #2a282d52;
   border: none;
   border-radius: 5px;
-  color: #000000;
+  color: #ffffff;
   width: 50%;
 `;
 
@@ -100,10 +100,10 @@ const Button = styled.button`
   text-align: center;
   border: 1px;
   border-style: solid;
-
+border-color: #000000;
   border-radius: 50px;
 
-  color: #ffffff;
+  color: #000000;
   background: transparent;
   text-transform: uppercase;
   transition: all 0.3s ease;

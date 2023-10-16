@@ -26,7 +26,7 @@ const ButtonG = styled.button`
 
   border-radius: 50px;
 
-  color: #ffffff;
+  color: #000000;
   background: transparent;
   text-transform: uppercase;
   transition: all 0.3s ease;
