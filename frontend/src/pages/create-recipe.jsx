@@ -21,7 +21,7 @@ const Container = styled.div`
   display: flex;
   gap: 50px;
   height: auto;
-  background-color: rgba(82, 82, 82, 0.697);
+  background-color: rgba(247, 247, 247, 0.697);
 
 backdrop-filter: blur(10px);
 border-radius: 8px;
@@ -29,7 +29,7 @@ box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
 backdrop-filter: blur(4.5px);
 -webkit-backdrop-filter: blur(13.5px);
 &:hover {
-  background-color: rgba(92, 90, 90, 0.697);
+  background-color: rgba(255, 255, 255, 0.697);
 box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
 backdrop-filter: blur(10px);
 border-radius: 8px;
@@ -72,18 +72,18 @@ const Form = styled.form`
 
 const Input = styled.input`
   padding: 20px;
-  background-color: #fdfcff52;
+  background-color: #0c0c0c52;
   border: none;
   border-radius: 5px;
-  color: #000000;
+  color: #ffffff;
 `;
 
 const TextArea = styled.textarea`
   padding: 20px;
   border: none;
   border-radius: 5px;
-  color: #000000;
-  background-color: #fdfcff52;
+  color: #ffffff;
+  background-color: #0c0c0c52;
 `;
 
 const Button = styled.button`
