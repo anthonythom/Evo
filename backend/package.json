@@ -6,7 +6,8 @@
   "type": "module",
 
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "vercel-build": "npm migrate deploy"
   },
   "keywords": [],
   "author": "",
