@@ -89,6 +89,7 @@ const Label = styled.label`
   border: none;
   border-radius: 5px;
   color: #000000;
+
 `;
 
 const Button = styled.button`

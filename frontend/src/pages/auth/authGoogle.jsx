@@ -14,7 +14,6 @@ const ButtonG = styled.button`
   img {
     width: 30px;
   }
-
   height: 50px;
   cursor: pointer;
   font-size: 14px;
@@ -23,9 +22,7 @@ const ButtonG = styled.button`
   text-align: center;
   border: 1px;
   border-style: solid;
-
   border-radius: 50px;
-
   color: #000000;
   background: transparent;
   text-transform: uppercase;
@@ -69,4 +66,4 @@ const AuthGoogle = () => {
   )
 }
 
-export default AuthGoogle
+export default AuthGoogle;

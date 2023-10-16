@@ -6,18 +6,13 @@ import { SavedRecipes } from "./pages/saved-recipes";
 import { Navbar } from "./components/navbar";
 import styled from "styled-components";
 
-
 const Section = styled.div`
-display: flex;
-
-
+  display: flex;
 `;
-
 
 const Container = styled.div`
   height: 100vh;
   width: 100vw;
-
   scroll-behavior: smooth;
   overflow-y: auto;
   scrollbar-width: none;
@@ -31,31 +26,22 @@ const Container = styled.div`
   &::-webkit-scrollbar {
     display: none;
   }
-
 `;
-
-
-
-
-
-
-
-
 
 function App() {
   return (
     <Section>
-    <Container>
-      <Router>
-       <Navbar/>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/create-recipe" element={<CreateRecipe />} />
-          <Route path="/saved-recipes" element={<SavedRecipes />} />
-          <Route path="/auth" element={<Auth />} />
-        </Routes>
-      </Router>
-    </Container>
+      <Container>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/create-recipe" element={<CreateRecipe />} />
+            <Route path="/saved-recipes" element={<SavedRecipes />} />
+            <Route path="/auth" element={<Auth />} />
+          </Routes>
+        </Router>
+      </Container>
     </Section>
   );
 }
