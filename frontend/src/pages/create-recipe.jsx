@@ -4,15 +4,17 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import styled from "styled-components";
+import swal from 'sweetalert';
 
 const Section = styled.div`
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+  font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
-
   flex-wrap: wrap;
   text-align: center;
-  background-image: url("bg.png");
-  background-repeat: repeat;
+  background-image: url("bg-create-revenue.jpg");
+  background-repeat: no-repeat;
   background-size: cover;
 `;
 
@@ -21,21 +23,17 @@ const Container = styled.div`
   display: flex;
   gap: 50px;
   height: auto;
-  background-color: rgba(247, 247, 247, 0.697);
-
-backdrop-filter: blur(10px);
-border-radius: 8px;
-box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
-backdrop-filter: blur(4.5px);
--webkit-backdrop-filter: blur(13.5px);
-&:hover {
-  background-color: rgba(255, 255, 255, 0.697);
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-backdrop-filter: blur(10px);
-border-radius: 8px;
-}
+  border-radius: 16px;
+  color: white;
+  background: rgba(221, 218, 218, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(221, 218, 218, 0.7);
+  padding-bottom: 40px;
   justify-content: center;
-  width: 37%;
+  width: 60%;
 
   border-radius: 5px;
   margin: 5rem auto 0 auto;
@@ -56,13 +54,12 @@ const Title = styled.h1`
   font-size: 3rem;
   font-weight: 200px;
   justify-content: center;
-  color: #000000;
+  color: white;
 `;
 
 const Form = styled.form`
-  width: 500px;
+  width: 600px;
   display: flex;
-
   flex-direction: column;
   gap: 25px;
   @media only screen and (max-width: 768px) {
@@ -71,19 +68,23 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  padding: 20px;
-  background-color: #0c0c0c52;
+  padding: 15px;
+  background-color: #252525;
   border: none;
-  border-radius: 5px;
+  border: 1px solid #f29f05;
+  box-shadow: 0px 0px 10px #f29f05;
+  border-radius: 9px;
   color: #ffffff;
 `;
 
 const TextArea = styled.textarea`
-  padding: 20px;
+  padding: 15px;
   border: none;
-  border-radius: 5px;
+  border: 1px solid #f29f05;
+  box-shadow: 0px 0px 10px #f29f05;
+  border-radius: 9px;
   color: #ffffff;
-  background-color: #0c0c0c52;
+  background-color: #252525;
 `;
 
 const Button = styled.button`
@@ -97,16 +98,17 @@ const Button = styled.button`
   border: 1px;
   border-style: solid;
 
-  border-radius: 50px;
+  border-radius: 10px;
 
-  color: #000000;
+  color: white;
   background: transparent;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
-    color: #000000;
-    background-color: #ffcc00;
+    color: white;
+    background-color: #f29f05;
+    transition: 1.2s;
     box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
   }
 `;
@@ -154,12 +156,12 @@ export const CreateRecipe = () => {
         }
       );
 
-      alert("Recipe Created");
+      swal("Receita criada com sucesso!", "success");
       navigate("/");
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        alert("Você está deslogado. Por favor, se cadastre ou faça login.");
-        navigate("/auth")
+        swal("Você está deslogado. Por favor, se cadastre ou faça login.");
+        navigate("/auth");
       } else {
         console.log(error);
       }

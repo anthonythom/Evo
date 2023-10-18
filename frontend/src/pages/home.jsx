@@ -6,20 +6,20 @@ import styled from "styled-components";
 const Section = styled.div`
   display: flex;
   justify-content: center;
-
   flex-wrap: wrap;
   text-align: center;
-  background-image: url("bg.png");
-  background-repeat: repeat;
-  background-size: cover;
+
+  background-image: url("bg-user.jpg");
 `;
 
 const Title = styled.a`
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-family: "Poppins", sans-serif;
-  font-size: 50px;
-  color: black;
+margin-top: 50px;
+margin-bottom: 50px;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 200px;
+  justify-content: center;
+  color: white;
 `;
 
 const Title2 = styled.p`
@@ -27,7 +27,7 @@ const Title2 = styled.p`
   font-weight: bold;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #000000;
+  color: #ffffff;
   margin-top: 20px;
   margin-bottom: 20px;
 `;
@@ -50,20 +50,15 @@ const Li = styled.li`
 
   height: auto;
 
-  background-color: rgba(225, 225, 225, 0.697);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-
-  box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(13.5px);
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.697);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  }
+  color: white;
+background: rgba(221, 218, 218, 0.37);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.7px);
+-webkit-backdrop-filter: blur(8.7px);
+border: 1px solid rgba(221, 218, 218, 0.7);
+padding-bottom: 40px;
+  justify-content: center;
 `;
 const P = styled.p`
   @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
@@ -71,7 +66,7 @@ const P = styled.p`
   font-size: 25px;
   width: 500px;
   font-family: "Poppins", sans-serif;
-  color: #000000;
+  color: #ffffff;
   text-align: start;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -107,6 +102,7 @@ const Button = styled.button`
     box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
   }
 `;
+
 
 export const Home = () => {
   const [recipes, setRecipes] = useState([]);

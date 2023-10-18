@@ -67,7 +67,7 @@ router.put("/", async (req, res) => {
   }
 });
 
-// Get id of saved recipes
+
 router.get("/savedRecipes/ids/:userId", async (req, res) => {
   try {
     const user = await UserModel.findById(req.params.userId);
@@ -78,7 +78,7 @@ router.get("/savedRecipes/ids/:userId", async (req, res) => {
   }
 });
 
-// Get saved recipes
+
 router.get("/savedRecipes/:userId", async (req, res) => {
   try {
     const user = await UserModel.findById(req.params.userId);

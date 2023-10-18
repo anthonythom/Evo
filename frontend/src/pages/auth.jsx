@@ -4,37 +4,33 @@ import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import AuthGoogle from "./auth/authGoogle";
+import swal from 'sweetalert';
 
 const Section = styled.div`
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap");
+font-family: "Poppins", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  color: #000000;
-  background-image: url("bg.png");
-  background-repeat: repeat;
-  background-size: 100%;
+  color: #fff;
+  background-image: url("bg-user.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Container = styled.div`
   margin-top: 250px;
   display: flex;
   height: 500px;
-  background-color: rgba(247, 247, 247, 0.697);
-
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  box-shadow: 0 8px 30px 0 rgba(17, 17, 17, 0.37);
-  backdrop-filter: blur(4.5px);
-  -webkit-backdrop-filter: blur(13.5px);
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.697);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 8px;
-  }
- 
+color: white;
+  background: rgba(221, 218, 218, 0.37);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.7px);
+  -webkit-backdrop-filter: blur(8.7px);
+  border: 1px solid rgba(221, 218, 218, 0.7);
 
   justify-content: center;
   align-items: center;
@@ -57,14 +53,13 @@ const Title = styled.h1`
   margin-top: 35px;
   display: flex;
   font-size: 3rem;
-  font-weight: 200px;
+  font-weight: bold;
   justify-content: center;
-  color: #000000;
+  color: #fff;
 `;
 
 const FormG = styled.form`
   display: flex;
-
   gap: 10px;
   justify-content: space-between;
 `;
@@ -76,19 +71,21 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  padding: 20px;
-  background-color: #2a282d52;
+padding: 15px;
+  background-color: #252525;
   border: none;
-  border-radius: 5px;
+  border: 1px solid #F29F05;
+  box-shadow: 0px 0px 10px #F29F05;
+  border-radius: 9px;
   color: #ffffff;
-  width: 50%;
+  width: 60%;
 `;
 
 const Label = styled.label`
-  padding: 20px;
+  padding: 20px 0px;
   border: none;
   border-radius: 5px;
-  color: #000000;
+  color: white;
 
 `;
 
@@ -101,21 +98,21 @@ const Button = styled.button`
   text-align: center;
   border: 1px;
   border-style: solid;
-border-color: #000000;
-  border-radius: 50px;
+border-color: #fff;
+  border-radius: 10px;
 
-  color: #000000;
+  color: #fff;
   background: transparent;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
-    color: #000000;
-    background-color: #ffcc00;
+    color: #fff;
+    background-color: #F29F05;
+    transition: 1.2s;
     box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
   }
 `;
-
 export const Auth = () => {
   return (
     <Section className="auth">
@@ -148,7 +145,7 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        alert("Dados incorretos, tente novamente.");
+        swal("Dados incorretos, tente novamente.");
       } else {
         console.log(error);
       }
@@ -211,10 +208,10 @@ const Register = () => {
         email,
         password,
       });
-      alert("Cadastro concluído! Agora faça login.");
+      swal("Cadastro concluído! Agora faça login. " , "success");
     } catch (error) {
       if (error.response && error.response.status === 400) {
-        alert(
+        swal(
           "Usuário já cadastrado. Por favor, escolha outro nome de usuário."
         );
       } else {

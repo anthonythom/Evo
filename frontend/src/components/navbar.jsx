@@ -11,14 +11,8 @@ const Container = styled.div`
   height: auto;
   align-items: center;
   padding: 10px;
- 
-  background-image: conic-gradient(
-    from 90deg at 50% 100%,
-    #ffffff 0deg,
-    #ff9d00 90deg,
-    #ff6f00 1.9turn
-  );
-  box-shadow: 0 4px 4px 2px rgba(113, 113, 115, 0.5);
+  background-color: #F29F05;
+  
 
   @media (max-width: 768px) {
     width: 20%;
@@ -27,16 +21,14 @@ const Container = styled.div`
 
 
 const Logo = styled.img`
-  width: 150px;
+  width: 120px;
 `;
 const Links = styled.ul`
   display: flex;
 align-items: center;
   gap: 50px;
   cursor: pointer;
-
-  
-  font-size: 25px;
+  font-size: 1.1rem;
   font-family: "Poppins", sans-serif;
  
 `;
@@ -50,8 +42,7 @@ position: relative;
     left: 0;
     width: 100%;
     height: 4px;
-
-    background-color: #0044ff;
+    background-color: #BF0404;
     transform: scaleX(0);
     transform-origin: bottom left;
     transition: transform 0.3s;
@@ -97,7 +88,7 @@ position: relative;
     width: 100%;
     height: 4px;
 
-    background-color: #ff0000;
+    background-color: #BF0404;
     transform: scaleX(0);
     transform-origin: bottom left;
     transition: transform 0.3s;
@@ -112,54 +103,49 @@ position: relative;
 
 
 const Button = styled.button`
-  height: 50px;
-  width: 100px;
+  padding: 12px 25px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 19px;
   text-align: center;
-  border: 1px;
-  border-style: solid;
-  border: purple;
-  border-radius: 50px;
-
-  color: #000000;
-  background: #f4f884;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  background:  #730202;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
-    color: white;
-    background-color: #bd6c29;
-    box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
+    transition: 1.3s;
+    border: solid 1px #730202;
+    background: transparent;
+    color: #730202;
   }
 `;
 
 const ButtonC = styled.button`
+padding: 12px 25px;
   margin-left: 10px;
-  height: 50px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 0.7rem;
   font-weight: 700;
   line-height: 19px;
   text-align: center;
-  border: 1px;
-  border-style: solid;
-
-  border-radius: 50px;
-
+  border: none;
+  border-radius: 8px;
   color: #ffffff;
-  background: transparent;
+  background: #D28B07;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
+    transition: 1.3s;
     color: #000000;
-    background-color: #ffcc00;
-    box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
+    background-color: #fff;
   }
 `;
+
 
 export const Navbar = () => {
   const [cookies, setCookies] = useCookies(["access_token"]);

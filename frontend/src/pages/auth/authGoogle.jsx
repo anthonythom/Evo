@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { signInWithPopup } from "firebase/auth";
 import { auth, provider } from "./firebaseConfig";
 import styled from "styled-components";
-import { Navigate } from "react-router-dom";
+
 
 
 
@@ -23,17 +23,19 @@ const ButtonG = styled.button`
   border: 1px;
   border-style: solid;
   border-radius: 50px;
-  color: #000000;
+  color: #fff;
   background: transparent;
   text-transform: uppercase;
   transition: all 0.3s ease;
 
   &:hover {
-    color: #000000;
-    background-color: #ffcc00;
+    color: #fff;
+    background-color: #F29F05;
+    transition: 1.2s;
     box-shadow: rgb(100 100 111 / 50%) 0 7px 29px 0;
   }
 `;
+
 
 const AuthGoogle = () => {
 
@@ -46,8 +48,7 @@ const AuthGoogle = () => {
       signInWithPopup(auth, provider).then((data) => {
         
         setValue(data.user.email);
-       window.localStorage.setItem("email", data.user.email);
-       navigate("/")
+     localStorage.setItem("email", data.user.email);
       });
       
 
